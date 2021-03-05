@@ -1,6 +1,6 @@
 const request = await fetch(endpoint).then(blob => blob.json()).then(date =>console.log(data));
 
-async function windowActions{
+async function windowActions() {
 
     function findMatches(wordToMatch, foods) {
         return foods.filter(place => {
