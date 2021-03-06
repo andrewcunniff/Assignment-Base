@@ -35,8 +35,8 @@ async function windowActions() {
             `<li class='card mt-4'>
               <div class="card-content">
                   <div class="content">
-                      <p class="title is-3">${place.name}</p>
-                      <p class="subtitle is-5">${place.category}</p>
+                      <p class="hero">${place.name}</p>
+                      <p class="hero">${place.category}</p>
                       <address>${place.address_line_1}<br/>${place.address_line_2}<br/>
                           ${place.city}, ${place.state}. ${place.zip}</address>
                   </div>
