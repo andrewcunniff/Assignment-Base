@@ -4,25 +4,29 @@ body {
   background-color: black;
   margin: auto;
   max-width: 960px;
-  height:100%;
-  
+  height: 100%;
 }
 
 .hero {
   font-family: "Comfortaa", cursive;
-  color:  #ffe600;
+  color: #ffe600;
   padding-bottom: 100px;
 }
 .title {
-    font-weight: 800;
-    text-decoration: underline;
+  font-weight: 800;
+  text-decoration: underline;
 }
 .subtitle {
-    font-weight: 400;
-    font-style: italic;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .input .button {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
+ul {
+  list-style: disc outside;
+  margin-left: 2em;
+  margin-top: 1em;
+}

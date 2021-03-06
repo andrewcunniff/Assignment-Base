@@ -1,31 +1,54 @@
-const request = await fetch(endpoint).then(blob => blob.json()).then(date =>console.log(data));
+//const request = await fetch(endpoint).then(blob => blob.json()).then(date =>console.log(data));
 
 async function windowActions() {
+  const search = document.querySelector("#search");
+//  const radio = document.querySelector("#searchBy");
+  const searchByName = document.querySelector("#name");
+  const searchByFoodType = document.querySelector("#foodType");
+  const searchByZipCode = document.querySelector("#zipCode");
+  const filteredList = document.querySelector("#filteredList");
 
-    function findMatches(wordToMatch, foods) {
-        return foods.filter(place => {
-            const regex = new RegExp(wordToMatch, 'gi');
-            return place.name.match(regex) || place.category.match(regex)
-        });
+  let filteredPlaces = [];
+  let searchType = "name";
+
+  function findMatches(wordToMatch, places) {
+    return places.filter(place => {
+      const regex = new RegExp(wordToMatch, "gi");
+      return place.name.match(regex);
+    });
+  }
+  function removeChildren(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
     }
-    function displayMatch(){
-    const matchArray = findMatches(event.target.value, foods);
-    const html = matchArray.map(place => {
-     return `
-        <li> 
-        <span class="name"> ${place.name} </span>
-        <span class="category"> ${place.category} </span> 
-        <span class="address"> ${place.address_line_1}, ${place.city}, ${place.zip} </span> 
-        </li>`
-     }).join('');
-    suggestions.innerHTML = html;
-}
+  }
 
-    const searchInput = document.querySelector('.search');
-    const suggestions = document.querySelector('.suggestions');
+  function displayMatch() {
+    fetch("/api")
+      .then(res => res.json())
+      .then(json => {
+        filteredPlaces = findMatches(search.value, json);
+        removeChildren(filteredList);
+        filteredPlaces.forEach(place => {
+          filteredList.insertAdjacentHTML(
+            "beforeend",
+            `<li class='card mt-4'>
+              <div class="card-content">
+                  <div class="content">
+                      <p class="title is-3">${place.name}</p>
+                      <p class="subtitle is-5">${place.category}</p>
+                      <address>${place.address_line_1}<br/>${place.address_line_2}<br/>
+                          ${place.city}, ${place.state}. ${place.zip}</address>
+                  </div>
+              </div>
+              </li>`
+          );
+        });
+      });
+  }
 
-    searchInput.addEventListener('change', displayMatch);
-    searchInput.addEventListener('keyup', (evt) => { displayMatches(evt) });
-    const foods = await request.json()
+  search.addEventListener("change", displayMatch);
+  search.addEventListener("keyup", displayMatch);
+//  radio.addEventListener("change", displayMatch);
 }
 window.onload = windowActions;
