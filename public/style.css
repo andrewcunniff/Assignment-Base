@@ -1,10 +1,41 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css";
 
+html {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+}
+
 body {
-  background-color: black;
-  margin: auto;
-  max-width: 960px;
-  height: 100%;
+  background-color: rgb(0, 0, 0);
+  margin: 0 auto;
+  width: 70%;
+  min-width: 800px;
+}
+
+.level { 
+  padding: 40px;
+}
+
+ul.suggestions {
+  list-style-type: none;
+}
+
+.card {
+  background-image: linear-gradient(rgb(255, 217, 0), rgb(255, 0, 0));
+  padding: 5%;
+  outline-style: ridge;
+  outline-color: rgb(83, 83, 83);
+  outline-width: thick;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+
+.content .title, .content .subtitle, .content p {
+  color: rgb(16, 0, 85);
+  text-align:center;
 }
 
 .hero {
@@ -12,11 +43,11 @@ body {
   color: #ffe600;
   padding-bottom: 100px;
 }
-.title {
+.hero .title {
   font-weight: 800;
   text-decoration: underline;
 }
-.subtitle {
+.hero .subtitle {
   font-weight: 400;
   font-style: italic;
 }

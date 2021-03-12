@@ -22,54 +22,23 @@
       </div>
     </section>
 
-    
-      <section class="section is-medium">
-        <nav class="level">
-          <div class="level-item">
-            <div class="field has-addons">
-              <p class="control">
-                <form action="/api" method="POST">
-                <input
-                  class="input is-medium is-rounded"
-                  type="text"
-                  id="search"
-                  name="search"
-                  placeholder="Search"
-                />
+    <nav class="level">
+      <div class="level-item has-text-centered">
+        <div class="field has-addons">
+          <p class="control">
+            <form action="/api" method="post">
+              <input class="input is-medium is-rounded" type="text" id="search" name="Search" placeholder="Search"/>
             </form>
-              </p>
-              <p class="control">
-                <button type="submit" class="button is-success is-medium">
-                  Submit Form
-                </button>
-              </p>
-            </div>
-          </div>
-        </nav>
-      </section>
-    <ul id='filteredList'>
-    </ul>
-    <!--
-    <section class="section is-medium">
-        <div class="level">
-      <div class="level-item">
-        <form class="searchBar">
-          <input
-            class="input is-medium is-rounded"
-            type="text"
-            id="search"
-            name="search"
-            placeholder="Search"
-          />
-          <div class="block">
+          </p>
+          <p class="control">
             <button type="submit" class="button is-success is-medium">
               Submit Form
             </button>
-          </div>
-        </form>
+          </p>
+        </div>
       </div>
-    </section>
-    -->
+    </nav>
+    <ul class="suggestions"></ul>
   </body>
   <script src="script.js"></script>
 </html>
